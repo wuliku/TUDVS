@@ -31,14 +31,15 @@ public class TUDVSImpl {
         PairingParameters typeAParams = Apg.generate();
         //初始化一个Pairing实例
         Pairing pairing = PairingFactory.getPairing(typeAParams);
-        //System.out.println("Generating Pairing :" + pairing);
+        System.out.println("Generating Pairing :" + pairing);
 
         //群G1、G2、Zp
         Field G1 = pairing.getG1();
         Field G2 = pairing.getG2();
         Field Zp = pairing.getZr();
-        //System.out.println("Generating Group :" + G1);
-        //System.out.println("Generating Zp :" + Zp);
+        System.out.println("Generating Group G1 :" + G1);
+        System.out.println("Generating Group G2 :" + G2);
+        System.out.println("Generating Zp :" + Zp);
 
         //大素数
         Element p = G1.newRandomElement().getImmutable();
@@ -56,7 +57,7 @@ public class TUDVSImpl {
         Element T = s;
         System.out.println("Generating tracing key T: ");
         System.out.println("T = " + T);
-        //系统主公钥P_pub、P_pub1
+        //系统主公钥P_pub、P_pub'
         Element P_pub = P.mulZn(s);
         Element P_pub1 = P_pub.mulZn(s);
         System.out.println("Generating system master public key pk: ");
@@ -64,6 +65,8 @@ public class TUDVSImpl {
         System.out.println("P_pub1 = " + P_pub1);
         System.out.println();
         System.out.println();
+
+
 
 
         /**
